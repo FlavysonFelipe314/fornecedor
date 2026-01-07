@@ -1,0 +1,158 @@
+.category-filter {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-header h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expand-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.expand-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.filter-buttons.collapsed {
+  max-height: 40px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+
+.filter-buttons.expanded {
+  max-height: 1000px;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.filter-icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.filter-btn.active .filter-icon {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .category-filter {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+
+  .filter-header {
+    margin-bottom: 0.625rem;
+  }
+
+  .filter-header h3 {
+    font-size: 0.6875rem;
+  }
+
+  .expand-btn {
+    padding: 0.25rem;
+  }
+
+  .expand-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .filter-buttons {
+    gap: 0.375rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .filter-buttons.collapsed {
+    max-height: 40px;
+  }
+
+  .filter-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .filter-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
